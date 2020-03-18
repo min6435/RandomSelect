@@ -50,7 +50,7 @@ namespace RandomSelect
                 jsonFilePath = KeywordPathManager.GetOriginalPath(jsonFilePath);
                 JsonCharacter jsonCharacter = new JsonCharacter();
                 if (JsonCharacter.LoadJsonFile(jsonFilePath, out jsonCharacter) == false)
-                    MessageBox.Show($@"Json 파일 오류. {AppConfiguration.GetAppConfig("Json_file_path")}");
+                    MessageBox.Show($@"Json 파일 읽어오기 실패.{Environment.NewLine}{AppConfiguration.GetAppConfig("Json_file_path")}");
                 else
                     JsonCharacter.SetInstance(jsonCharacter);
             }
@@ -287,6 +287,7 @@ namespace RandomSelect
 
         private void buttonOpenSaveDirectoryPath_Click(object sender, EventArgs e)
         {
+            Directory.CreateDirectory(saveDirectoryPath);
             Process.Start(saveDirectoryPath);
         }
 
