@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBoxSelectedImage = new System.Windows.Forms.PictureBox();
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
             this.ColumnEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -74,6 +74,7 @@
             this.buttonSetSaveDirectoryPath = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonSaveAs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -88,7 +89,7 @@
             // pictureBoxSelectedImage
             // 
             this.pictureBoxSelectedImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSelectedImage.Location = new System.Drawing.Point(547, 63);
+            this.pictureBoxSelectedImage.Location = new System.Drawing.Point(547, 83);
             this.pictureBoxSelectedImage.Name = "pictureBoxSelectedImage";
             this.pictureBoxSelectedImage.Size = new System.Drawing.Size(333, 293);
             this.pictureBoxSelectedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -100,30 +101,30 @@
             this.dataGridViewMain.AllowUserToAddRows = false;
             this.dataGridViewMain.AllowUserToResizeRows = false;
             this.dataGridViewMain.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("굴림", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnEnable,
             this.ColumnImage,
             this.ColumnName,
             this.ColumnCaption});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("굴림", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewMain.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("굴림", 10F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewMain.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewMain.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridViewMain.Location = new System.Drawing.Point(20, 92);
+            this.dataGridViewMain.Location = new System.Drawing.Point(20, 112);
             this.dataGridViewMain.MultiSelect = false;
             this.dataGridViewMain.Name = "dataGridViewMain";
             this.dataGridViewMain.RowHeadersVisible = false;
@@ -166,7 +167,7 @@
             // buttonEnableAll
             // 
             this.buttonEnableAll.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonEnableAll.Location = new System.Drawing.Point(20, 63);
+            this.buttonEnableAll.Location = new System.Drawing.Point(20, 82);
             this.buttonEnableAll.Name = "buttonEnableAll";
             this.buttonEnableAll.Size = new System.Drawing.Size(94, 23);
             this.buttonEnableAll.TabIndex = 200;
@@ -177,7 +178,7 @@
             // buttonDisableAll
             // 
             this.buttonDisableAll.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonDisableAll.Location = new System.Drawing.Point(120, 63);
+            this.buttonDisableAll.Location = new System.Drawing.Point(120, 83);
             this.buttonDisableAll.Name = "buttonDisableAll";
             this.buttonDisableAll.Size = new System.Drawing.Size(106, 23);
             this.buttonDisableAll.TabIndex = 200;
@@ -187,7 +188,7 @@
             // 
             // buttonSimpleRandomNumber
             // 
-            this.buttonSimpleRandomNumber.Location = new System.Drawing.Point(10, 74);
+            this.buttonSimpleRandomNumber.Location = new System.Drawing.Point(10, 83);
             this.buttonSimpleRandomNumber.Name = "buttonSimpleRandomNumber";
             this.buttonSimpleRandomNumber.Size = new System.Drawing.Size(75, 23);
             this.buttonSimpleRandomNumber.TabIndex = 2;
@@ -206,7 +207,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.buttonSimpleRandomNumber);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(369, 178);
+            this.groupBox1.Location = new System.Drawing.Point(369, 198);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(162, 109);
             this.groupBox1.TabIndex = 7;
@@ -216,14 +217,14 @@
             // labelSimpleRandomNumber
             // 
             this.labelSimpleRandomNumber.AutoSize = true;
-            this.labelSimpleRandomNumber.Location = new System.Drawing.Point(135, 79);
+            this.labelSimpleRandomNumber.Location = new System.Drawing.Point(135, 88);
             this.labelSimpleRandomNumber.Name = "labelSimpleRandomNumber";
             this.labelSimpleRandomNumber.Size = new System.Drawing.Size(0, 14);
             this.labelSimpleRandomNumber.TabIndex = 8;
             // 
             // numericUpDownMax
             // 
-            this.numericUpDownMax.Location = new System.Drawing.Point(96, 43);
+            this.numericUpDownMax.Location = new System.Drawing.Point(96, 52);
             this.numericUpDownMax.Minimum = new decimal(new int[] {
             1,
             0,
@@ -241,7 +242,7 @@
             // 
             // numericUpDownMin
             // 
-            this.numericUpDownMin.Location = new System.Drawing.Point(11, 43);
+            this.numericUpDownMin.Location = new System.Drawing.Point(11, 52);
             this.numericUpDownMin.Minimum = new decimal(new int[] {
             1,
             0,
@@ -260,7 +261,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(92, 79);
+            this.label4.Location = new System.Drawing.Point(92, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 14);
             this.label4.TabIndex = 7;
@@ -269,7 +270,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 48);
+            this.label3.Location = new System.Drawing.Point(74, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 14);
             this.label3.TabIndex = 7;
@@ -278,7 +279,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 22);
+            this.label2.Location = new System.Drawing.Point(104, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 14);
             this.label2.TabIndex = 7;
@@ -287,7 +288,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 22);
+            this.label1.Location = new System.Drawing.Point(19, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 14);
             this.label1.TabIndex = 7;
@@ -299,7 +300,7 @@
             this.groupBox2.Controls.Add(this.radioButtonRandomNumberGeneratorSeed);
             this.groupBox2.Controls.Add(this.radioButtonRandomNumberGeneratorSecurity);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(369, 63);
+            this.groupBox2.Location = new System.Drawing.Point(369, 83);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(162, 109);
             this.groupBox2.TabIndex = 8;
@@ -309,7 +310,7 @@
             // radioButtonRandomNumberGeneratorTime
             // 
             this.radioButtonRandomNumberGeneratorTime.AutoSize = true;
-            this.radioButtonRandomNumberGeneratorTime.Location = new System.Drawing.Point(16, 74);
+            this.radioButtonRandomNumberGeneratorTime.Location = new System.Drawing.Point(16, 83);
             this.radioButtonRandomNumberGeneratorTime.Name = "radioButtonRandomNumberGeneratorTime";
             this.radioButtonRandomNumberGeneratorTime.Size = new System.Drawing.Size(53, 18);
             this.radioButtonRandomNumberGeneratorTime.TabIndex = 5;
@@ -320,7 +321,7 @@
             // radioButtonRandomNumberGeneratorSeed
             // 
             this.radioButtonRandomNumberGeneratorSeed.AutoSize = true;
-            this.radioButtonRandomNumberGeneratorSeed.Location = new System.Drawing.Point(16, 52);
+            this.radioButtonRandomNumberGeneratorSeed.Location = new System.Drawing.Point(16, 61);
             this.radioButtonRandomNumberGeneratorSeed.Name = "radioButtonRandomNumberGeneratorSeed";
             this.radioButtonRandomNumberGeneratorSeed.Size = new System.Drawing.Size(53, 18);
             this.radioButtonRandomNumberGeneratorSeed.TabIndex = 4;
@@ -332,7 +333,7 @@
             // 
             this.radioButtonRandomNumberGeneratorSecurity.AutoSize = true;
             this.radioButtonRandomNumberGeneratorSecurity.Checked = true;
-            this.radioButtonRandomNumberGeneratorSecurity.Location = new System.Drawing.Point(16, 30);
+            this.radioButtonRandomNumberGeneratorSecurity.Location = new System.Drawing.Point(16, 39);
             this.radioButtonRandomNumberGeneratorSecurity.Name = "radioButtonRandomNumberGeneratorSecurity";
             this.radioButtonRandomNumberGeneratorSecurity.Size = new System.Drawing.Size(67, 18);
             this.radioButtonRandomNumberGeneratorSecurity.TabIndex = 3;
@@ -348,7 +349,7 @@
             this.groupBox3.Controls.Add(this.numericUpDownRandomSelectCount);
             this.groupBox3.Controls.Add(this.buttonRandomSelect);
             this.groupBox3.Font = new System.Drawing.Font("굴림", 10F);
-            this.groupBox3.Location = new System.Drawing.Point(369, 362);
+            this.groupBox3.Location = new System.Drawing.Point(369, 382);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(162, 87);
             this.groupBox3.TabIndex = 201;
@@ -358,7 +359,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(96, 56);
+            this.label6.Location = new System.Drawing.Point(96, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 14);
             this.label6.TabIndex = 10;
@@ -367,7 +368,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 26);
+            this.label5.Location = new System.Drawing.Point(14, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 14);
             this.label5.TabIndex = 10;
@@ -375,7 +376,7 @@
             // 
             // numericUpDownRandomSelectCount
             // 
-            this.numericUpDownRandomSelectCount.Location = new System.Drawing.Point(90, 22);
+            this.numericUpDownRandomSelectCount.Location = new System.Drawing.Point(90, 31);
             this.numericUpDownRandomSelectCount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -394,7 +395,7 @@
             // 
             // buttonRandomSelect
             // 
-            this.buttonRandomSelect.Location = new System.Drawing.Point(16, 51);
+            this.buttonRandomSelect.Location = new System.Drawing.Point(16, 60);
             this.buttonRandomSelect.Name = "buttonRandomSelect";
             this.buttonRandomSelect.Size = new System.Drawing.Size(75, 23);
             this.buttonRandomSelect.TabIndex = 0;
@@ -405,7 +406,7 @@
             // buttonAddCharacter
             // 
             this.buttonAddCharacter.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonAddCharacter.Location = new System.Drawing.Point(255, 63);
+            this.buttonAddCharacter.Location = new System.Drawing.Point(255, 83);
             this.buttonAddCharacter.Name = "buttonAddCharacter";
             this.buttonAddCharacter.Size = new System.Drawing.Size(46, 23);
             this.buttonAddCharacter.TabIndex = 200;
@@ -416,7 +417,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonDelete.Location = new System.Drawing.Point(307, 63);
+            this.buttonDelete.Location = new System.Drawing.Point(307, 83);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(46, 23);
             this.buttonDelete.TabIndex = 200;
@@ -427,7 +428,7 @@
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonSave.Location = new System.Drawing.Point(199, 34);
+            this.buttonSave.Location = new System.Drawing.Point(137, 54);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(74, 23);
             this.buttonSave.TabIndex = 200;
@@ -438,7 +439,7 @@
             // buttonLoad
             // 
             this.buttonLoad.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonLoad.Location = new System.Drawing.Point(279, 34);
+            this.buttonLoad.Location = new System.Drawing.Point(217, 54);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(74, 23);
             this.buttonLoad.TabIndex = 200;
@@ -466,30 +467,30 @@
             this.dataGridViewWinner.AllowUserToAddRows = false;
             this.dataGridViewWinner.AllowUserToResizeRows = false;
             this.dataGridViewWinner.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("굴림", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewWinner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("굴림", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewWinner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewWinner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWinner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewImageColumn1,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewWinner.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("굴림", 10F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWinner.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewWinner.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridViewWinner.Location = new System.Drawing.Point(547, 371);
+            this.dataGridViewWinner.Location = new System.Drawing.Point(547, 391);
             this.dataGridViewWinner.MultiSelect = false;
             this.dataGridViewWinner.Name = "dataGridViewWinner";
             this.dataGridViewWinner.ReadOnly = true;
@@ -538,7 +539,7 @@
             // buttonOpenSaveDirectoryPath
             // 
             this.buttonOpenSaveDirectoryPath.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonOpenSaveDirectoryPath.Location = new System.Drawing.Point(359, 34);
+            this.buttonOpenSaveDirectoryPath.Location = new System.Drawing.Point(297, 54);
             this.buttonOpenSaveDirectoryPath.Name = "buttonOpenSaveDirectoryPath";
             this.buttonOpenSaveDirectoryPath.Size = new System.Drawing.Size(118, 23);
             this.buttonOpenSaveDirectoryPath.TabIndex = 200;
@@ -549,7 +550,7 @@
             // buttonSetSaveDirectoryPath
             // 
             this.buttonSetSaveDirectoryPath.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonSetSaveDirectoryPath.Location = new System.Drawing.Point(483, 34);
+            this.buttonSetSaveDirectoryPath.Location = new System.Drawing.Point(421, 54);
             this.buttonSetSaveDirectoryPath.Name = "buttonSetSaveDirectoryPath";
             this.buttonSetSaveDirectoryPath.Size = new System.Drawing.Size(118, 23);
             this.buttonSetSaveDirectoryPath.TabIndex = 200;
@@ -560,17 +561,28 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(201, 19);
+            this.label7.Location = new System.Drawing.Point(630, 59);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(250, 12);
             this.label7.TabIndex = 203;
             this.label7.Text = "https://github.com/min6435/RandomSelect";
             // 
+            // buttonSaveAs
+            // 
+            this.buttonSaveAs.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonSaveAs.Location = new System.Drawing.Point(20, 54);
+            this.buttonSaveAs.Name = "buttonSaveAs";
+            this.buttonSaveAs.Size = new System.Drawing.Size(111, 23);
+            this.buttonSaveAs.TabIndex = 200;
+            this.buttonSaveAs.Text = "새로 저장하기";
+            this.buttonSaveAs.UseVisualStyleBackColor = true;
+            this.buttonSaveAs.Click += new System.EventHandler(this.buttonSaveAs_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 690);
+            this.ClientSize = new System.Drawing.Size(900, 710);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridViewWinner);
             this.Controls.Add(this.groupBox3);
@@ -581,6 +593,7 @@
             this.Controls.Add(this.buttonOpenSaveDirectoryPath);
             this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonSaveAs);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonAddCharacter);
             this.Controls.Add(this.buttonEnableAll);
@@ -650,6 +663,7 @@
         private System.Windows.Forms.Button buttonSetSaveDirectoryPath;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonSaveAs;
     }
 }
 

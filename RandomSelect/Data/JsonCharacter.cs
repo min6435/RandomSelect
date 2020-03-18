@@ -143,6 +143,8 @@ namespace RandomSelect
 
             //파일로 저장합니다.
             File.WriteAllText(filePath, originalJsonString);
+
+            rootPath = KeywordPathManager.GetOriginalPath(rootPath);
         }
 
         public string ConvertJsonString()

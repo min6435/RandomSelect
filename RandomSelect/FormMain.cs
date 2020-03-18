@@ -50,7 +50,10 @@ namespace RandomSelect
                 jsonFilePath = KeywordPathManager.GetOriginalPath(jsonFilePath);
                 JsonCharacter jsonCharacter = new JsonCharacter();
                 if (JsonCharacter.LoadJsonFile(jsonFilePath, out jsonCharacter) == false)
+                {
                     MessageBox.Show($@"Json 파일 읽어오기 실패.{Environment.NewLine}{AppConfiguration.GetAppConfig("Json_file_path")}");
+                    jsonFilePath = string.Empty;
+                }
                 else
                     JsonCharacter.SetInstance(jsonCharacter);
             }
@@ -88,7 +91,7 @@ namespace RandomSelect
             dataGridViewMain.FirstDisplayedScrollingRowIndex = JsonCharacter.GetInstance().characterList.Count()-1;
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void buttonSaveAs_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory(saveDirectoryPath);
 
@@ -96,8 +99,9 @@ namespace RandomSelect
             saveJsonFileDialog.FileName = string.Empty;
             if (DialogResult.OK != saveJsonFileDialog.ShowDialog())
                 return;
-
+            
             JsonCharacter.GetInstance().SaveJsonFile(saveJsonFileDialog.FileName);
+            jsonFilePath = $@"{JsonCharacter.GetInstance().rootPath}\{Path.GetFileName(saveJsonFileDialog.FileName)}";
             AppConfiguration.SetAppConfig("Json_file_path", KeywordPathManager.GetKeywordPath($@"{JsonCharacter.GetInstance().rootPath}\{Path.GetFileName(saveJsonFileDialog.FileName)}"));
         }
 
@@ -314,7 +318,7 @@ namespace RandomSelect
                 }
                 else if (dialogResult == DialogResult.Yes)
                 {
-                    buttonSave_Click(null, null);
+                    buttonSaveAs_Click(null, null);
                 }
             }
             else if (JsonCharacter.GetInstance().GetOriginalJsonString() != JsonCharacter.GetInstance().ConvertJsonString())
@@ -327,10 +331,18 @@ namespace RandomSelect
                 }
                 else if (dialogResult == DialogResult.Yes)
                 {
-                    JsonCharacter.GetInstance().SaveJsonFile(jsonFilePath, true);
-                    AppConfiguration.SetAppConfig("Json_file_path", KeywordPathManager.GetKeywordPath(jsonFilePath));
+                    buttonSave_Click(null, null);
                 }
             }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(jsonFilePath) == true)
+                return;
+
+            JsonCharacter.GetInstance().SaveJsonFile(KeywordPathManager.GetOriginalPath(jsonFilePath), true);
+            AppConfiguration.SetAppConfig("Json_file_path", KeywordPathManager.GetKeywordPath(jsonFilePath));
         }
     }
 }
