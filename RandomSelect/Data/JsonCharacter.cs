@@ -99,7 +99,15 @@ namespace RandomSelect
             {
                 string imageFilePath = $@"{jsonCharacter.rootPath}\{jsonCharacter.characterList[i].imageFileName}";
                 if (File.Exists(imageFilePath))
-                    jsonCharacter.characterList[i].image = Image.FromFile(imageFilePath);
+                {
+                    //File lock이 되므로 코드 변경함.
+                    //jsonCharacter.characterList[i].image = Image.FromFile(imageFilePath);
+                    using (FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+                    {
+                        jsonCharacter.characterList[i].image = Image.FromStream(fileStream);
+                        fileStream.Close();
+                    }
+                }
                 else
                     jsonCharacter.characterList[i].image = Properties.Resources.DefaultImage;
             }
@@ -110,14 +118,20 @@ namespace RandomSelect
             return true;
         }
 
-        public void SaveJsonFile(string filePath)
+        public void SaveJsonFile(string filePath, bool overwrite = false)
         {
-            rootPath = $@"{Path.GetDirectoryName(filePath)}\{Path.GetFileNameWithoutExtension(filePath)}";
-            Directory.CreateDirectory(rootPath);
-            filePath = $@"{rootPath}\{Path.GetFileName(filePath)}";
+            if(overwrite == false)
+            {
+                rootPath = $@"{Path.GetDirectoryName(filePath)}\{Path.GetFileNameWithoutExtension(filePath)}";
+                Directory.CreateDirectory(rootPath);
+                filePath = $@"{rootPath}\{Path.GetFileName(filePath)}";
+            }
 
             for (int i = 0; i < characterList.Count(); i++)
             {
+                if (File.Exists($@"{rootPath}\{characterList[i].imageFileName}"))
+                    File.Delete($@"{rootPath}\{characterList[i].imageFileName}");
+
                 characterList[i].image?.Save($@"{rootPath}\{characterList[i].imageFileName}",
                                                 characterList[i].image.RawFormat);
             }
@@ -137,6 +151,11 @@ namespace RandomSelect
             string jsonString = jObject.ToString();
             jsonString = jsonString.Replace("\"System.Drawing.Bitmap\"", "null");   //load시, exception 방지
             return jsonString;
+        }
+
+        public string GetOriginalJsonString()
+        {
+            return originalJsonString;
         }
     }
 }

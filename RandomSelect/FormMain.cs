@@ -173,7 +173,13 @@ namespace RandomSelect
 
                 try
                 {
-                    ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromFile(openImageFileDialog.FileName);
+                    //File lock이 되므로 코드 변경함.
+                    //((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromFile(openImageFileDialog.FileName);
+                    using (FileStream fileStream = new FileStream(openImageFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromStream(fileStream);
+                        fileStream.Close();
+                    }
                     ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).imageFileName = openImageFileDialog.SafeFileName;
                     ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).name = Path.GetFileNameWithoutExtension(openImageFileDialog.FileName);
                 }
@@ -292,6 +298,38 @@ namespace RandomSelect
 
             saveDirectoryPath = folderBrowserDialog.SelectedPath;
             AppConfiguration.SetAppConfig("Save_directory_path", KeywordPathManager.GetKeywordPath(folderBrowserDialog.SelectedPath));
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //teachingTarget 변경점이 있는 경우, 저장할거냐고 물어봄.
+            if (string.IsNullOrEmpty(JsonCharacter.GetInstance().GetOriginalJsonString()))
+            {
+                DialogResult dialogResult = MessageBox.Show("새로 저장하시겠습니까?", "Question", MessageBoxButtons.YesNoCancel);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                else if (dialogResult == DialogResult.Yes)
+                {
+                    buttonSave_Click(null, null);
+                }
+            }
+            else if (JsonCharacter.GetInstance().GetOriginalJsonString() != JsonCharacter.GetInstance().ConvertJsonString())
+            {
+                DialogResult dialogResult = MessageBox.Show("변경사항을 저장하시겠습니까?", "Question", MessageBoxButtons.YesNoCancel);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                else if (dialogResult == DialogResult.Yes)
+                {
+                    JsonCharacter.GetInstance().SaveJsonFile(jsonFilePath, true);
+                    AppConfiguration.SetAppConfig("Json_file_path", KeywordPathManager.GetKeywordPath(jsonFilePath));
+                }
+            }
         }
     }
 }
