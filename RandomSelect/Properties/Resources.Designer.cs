@@ -72,9 +72,9 @@ namespace RandomSelect.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Default {
+        internal static System.Drawing.Bitmap DefaultImage {
             get {
-                object obj = ResourceManager.GetObject("Default", resourceCulture);
+                object obj = ResourceManager.GetObject("DefaultImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -31,15 +31,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBoxSelectedImage = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewMain = new System.Windows.Forms.DataGridView();
             this.ColumnEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCaption = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonEnableAll = new System.Windows.Forms.Button();
+            this.buttonDisableAll = new System.Windows.Forms.Button();
             this.buttonSimpleRandomNumber = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelSimpleRandomNumber = new System.Windows.Forms.Label();
@@ -54,32 +54,35 @@
             this.radioButtonRandomNumberGeneratorSeed = new System.Windows.Forms.RadioButton();
             this.radioButtonRandomNumberGeneratorSecurity = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numericUpDownRandomSelectCount = new System.Windows.Forms.NumericUpDown();
+            this.buttonRandomSelect = new System.Windows.Forms.Button();
+            this.buttonAddCharacter = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonLoad = new System.Windows.Forms.Button();
+            this.saveJsonFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openJsonFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openImageFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewWinner = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonAddCharacter = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonOpenSaveDirectoryPath = new System.Windows.Forms.Button();
+            this.buttonSetSaveDirectoryPath = new System.Windows.Forms.Button();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomSelectCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWinner)).BeginInit();
             this.SuspendLayout();
-            // 
-            // richTextBoxLog
-            // 
-            this.richTextBoxLog.AutoWordSelection = true;
-            this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.richTextBoxLog.Location = new System.Drawing.Point(20, 673);
-            this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(860, 107);
-            this.richTextBoxLog.TabIndex = 200;
-            this.richTextBoxLog.Text = "";
             // 
             // pictureBoxSelectedImage
             // 
@@ -91,11 +94,11 @@
             this.pictureBoxSelectedImage.TabIndex = 1;
             this.pictureBoxSelectedImage.TabStop = false;
             // 
-            // dataGridView1
+            // dataGridViewMain
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewMain.AllowUserToAddRows = false;
+            this.dataGridViewMain.AllowUserToResizeRows = false;
+            this.dataGridViewMain.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 10F);
@@ -103,9 +106,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnEnable,
             this.ColumnImage,
             this.ColumnName,
@@ -117,17 +120,19 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 92);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 80;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(333, 575);
-            this.dataGridView1.TabIndex = 200;
+            this.dataGridViewMain.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewMain.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridViewMain.Location = new System.Drawing.Point(20, 92);
+            this.dataGridViewMain.MultiSelect = false;
+            this.dataGridViewMain.Name = "dataGridViewMain";
+            this.dataGridViewMain.RowHeadersVisible = false;
+            this.dataGridViewMain.RowTemplate.Height = 80;
+            this.dataGridViewMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewMain.ShowCellErrors = false;
+            this.dataGridViewMain.Size = new System.Drawing.Size(333, 575);
+            this.dataGridViewMain.TabIndex = 200;
+            this.dataGridViewMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMain_CellClick);
+            this.dataGridViewMain.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMain_CellClick);
             // 
             // ColumnEnable
             // 
@@ -157,25 +162,27 @@
             this.ColumnCaption.HeaderText = "내용";
             this.ColumnCaption.Name = "ColumnCaption";
             // 
-            // button1
+            // buttonEnableAll
             // 
-            this.button1.Font = new System.Drawing.Font("굴림", 10F);
-            this.button1.Location = new System.Drawing.Point(20, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 23);
-            this.button1.TabIndex = 200;
-            this.button1.Text = "전체 활성화";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonEnableAll.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonEnableAll.Location = new System.Drawing.Point(20, 63);
+            this.buttonEnableAll.Name = "buttonEnableAll";
+            this.buttonEnableAll.Size = new System.Drawing.Size(94, 23);
+            this.buttonEnableAll.TabIndex = 200;
+            this.buttonEnableAll.Text = "전체 활성화";
+            this.buttonEnableAll.UseVisualStyleBackColor = true;
+            this.buttonEnableAll.Click += new System.EventHandler(this.buttonEnableAll_Click);
             // 
-            // button2
+            // buttonDisableAll
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 10F);
-            this.button2.Location = new System.Drawing.Point(120, 63);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 200;
-            this.button2.Text = "전체 비활성화";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDisableAll.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonDisableAll.Location = new System.Drawing.Point(120, 63);
+            this.buttonDisableAll.Name = "buttonDisableAll";
+            this.buttonDisableAll.Size = new System.Drawing.Size(106, 23);
+            this.buttonDisableAll.TabIndex = 200;
+            this.buttonDisableAll.Text = "전체 비활성화";
+            this.buttonDisableAll.UseVisualStyleBackColor = true;
+            this.buttonDisableAll.Click += new System.EventHandler(this.buttonDisableAll_Click);
             // 
             // buttonSimpleRandomNumber
             // 
@@ -183,7 +190,7 @@
             this.buttonSimpleRandomNumber.Name = "buttonSimpleRandomNumber";
             this.buttonSimpleRandomNumber.Size = new System.Drawing.Size(75, 23);
             this.buttonSimpleRandomNumber.TabIndex = 2;
-            this.buttonSimpleRandomNumber.Text = "숫자뽑기";
+            this.buttonSimpleRandomNumber.Text = "시작";
             this.buttonSimpleRandomNumber.UseVisualStyleBackColor = true;
             this.buttonSimpleRandomNumber.Click += new System.EventHandler(this.buttonSimpleRandomNumber_Click);
             // 
@@ -335,69 +342,64 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(369, 293);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.numericUpDownRandomSelectCount);
+            this.groupBox3.Controls.Add(this.buttonRandomSelect);
+            this.groupBox3.Font = new System.Drawing.Font("굴림", 10F);
+            this.groupBox3.Location = new System.Drawing.Point(369, 362);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(162, 374);
+            this.groupBox3.Size = new System.Drawing.Size(162, 87);
             this.groupBox3.TabIndex = 201;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "랜덤 선택";
             // 
-            // dataGridView2
+            // label6
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            this.dataGridView2.Location = new System.Drawing.Point(547, 362);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 80;
-            this.dataGridView2.ShowCellErrors = false;
-            this.dataGridView2.Size = new System.Drawing.Size(333, 305);
-            this.dataGridView2.TabIndex = 202;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(96, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 14);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "결과 =>";
             // 
-            // dataGridViewCheckBoxColumn1
+            // label5
             // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "enable";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "활성화";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            this.dataGridViewCheckBoxColumn1.Width = 60;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 14);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "선택 개수";
             // 
-            // dataGridViewImageColumn1
+            // numericUpDownRandomSelectCount
             // 
-            this.dataGridViewImageColumn1.DataPropertyName = "image";
-            this.dataGridViewImageColumn1.HeaderText = "이미지";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 80;
+            this.numericUpDownRandomSelectCount.Location = new System.Drawing.Point(90, 22);
+            this.numericUpDownRandomSelectCount.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownRandomSelectCount.Name = "numericUpDownRandomSelectCount";
+            this.numericUpDownRandomSelectCount.Size = new System.Drawing.Size(58, 23);
+            this.numericUpDownRandomSelectCount.TabIndex = 9;
+            this.numericUpDownRandomSelectCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDownRandomSelectCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRandomSelectCount.ValueChanged += new System.EventHandler(this.numericUpDownRandomSelectCount_ValueChanged);
             // 
-            // dataGridViewTextBoxColumn1
+            // buttonRandomSelect
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn1.HeaderText = "이름";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "caption";
-            this.dataGridViewTextBoxColumn2.HeaderText = "내용";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 160;
+            this.buttonRandomSelect.Location = new System.Drawing.Point(16, 51);
+            this.buttonRandomSelect.Name = "buttonRandomSelect";
+            this.buttonRandomSelect.Size = new System.Drawing.Size(75, 23);
+            this.buttonRandomSelect.TabIndex = 0;
+            this.buttonRandomSelect.Text = "시작";
+            this.buttonRandomSelect.UseVisualStyleBackColor = true;
+            this.buttonRandomSelect.Click += new System.EventHandler(this.buttonRandomSelect_Click);
             // 
             // buttonAddCharacter
             // 
@@ -410,59 +412,197 @@
             this.buttonAddCharacter.UseVisualStyleBackColor = true;
             this.buttonAddCharacter.Click += new System.EventHandler(this.buttonAddCharacter_Click);
             // 
-            // button4
+            // buttonDelete
             // 
-            this.button4.Font = new System.Drawing.Font("굴림", 10F);
-            this.button4.Location = new System.Drawing.Point(307, 63);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(46, 23);
-            this.button4.TabIndex = 200;
-            this.button4.Text = "삭제";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonDelete.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonDelete.Location = new System.Drawing.Point(307, 63);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(46, 23);
+            this.buttonDelete.TabIndex = 200;
+            this.buttonDelete.Text = "삭제";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonSave.Location = new System.Drawing.Point(199, 34);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(74, 23);
+            this.buttonSave.TabIndex = 200;
+            this.buttonSave.Text = "저장하기";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonLoad.Location = new System.Drawing.Point(279, 34);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(74, 23);
+            this.buttonLoad.TabIndex = 200;
+            this.buttonLoad.Text = "불러오기";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
+            // saveJsonFileDialog
+            // 
+            this.saveJsonFileDialog.DefaultExt = "json";
+            this.saveJsonFileDialog.Filter = "Json파일|*.json";
+            // 
+            // openJsonFileDialog
+            // 
+            this.openJsonFileDialog.DefaultExt = "json";
+            this.openJsonFileDialog.Filter = "Json파일|*.json";
+            // 
+            // openImageFileDialog
+            // 
+            this.openImageFileDialog.DefaultExt = "png";
+            this.openImageFileDialog.Filter = "PNG파일|*.png|BMP파일|*.bmp|JPG파일|*.jpg|GIF파일|*.gif|모든파일|*.*";
+            // 
+            // dataGridViewWinner
+            // 
+            this.dataGridViewWinner.AllowUserToAddRows = false;
+            this.dataGridViewWinner.AllowUserToResizeRows = false;
+            this.dataGridViewWinner.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewWinner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewWinner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWinner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewImageColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWinner.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewWinner.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridViewWinner.Location = new System.Drawing.Point(547, 371);
+            this.dataGridViewWinner.MultiSelect = false;
+            this.dataGridViewWinner.Name = "dataGridViewWinner";
+            this.dataGridViewWinner.ReadOnly = true;
+            this.dataGridViewWinner.RowHeadersVisible = false;
+            this.dataGridViewWinner.RowTemplate.Height = 80;
+            this.dataGridViewWinner.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewWinner.ShowCellErrors = false;
+            this.dataGridViewWinner.Size = new System.Drawing.Size(333, 296);
+            this.dataGridViewWinner.TabIndex = 202;
+            this.dataGridViewWinner.SelectionChanged += new System.EventHandler(this.dataGridViewWinner_SelectionChanged);
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "enable";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "활성화";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.dataGridViewCheckBoxColumn1.Width = 60;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "image";
+            this.dataGridViewImageColumn1.HeaderText = "이미지";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "이름";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "caption";
+            this.dataGridViewTextBoxColumn2.HeaderText = "내용";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 160;
+            // 
+            // buttonOpenSaveDirectoryPath
+            // 
+            this.buttonOpenSaveDirectoryPath.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonOpenSaveDirectoryPath.Location = new System.Drawing.Point(359, 34);
+            this.buttonOpenSaveDirectoryPath.Name = "buttonOpenSaveDirectoryPath";
+            this.buttonOpenSaveDirectoryPath.Size = new System.Drawing.Size(118, 23);
+            this.buttonOpenSaveDirectoryPath.TabIndex = 200;
+            this.buttonOpenSaveDirectoryPath.Text = "저장 폴더 열기";
+            this.buttonOpenSaveDirectoryPath.UseVisualStyleBackColor = true;
+            this.buttonOpenSaveDirectoryPath.Click += new System.EventHandler(this.buttonOpenSaveDirectoryPath_Click);
+            // 
+            // buttonSetSaveDirectoryPath
+            // 
+            this.buttonSetSaveDirectoryPath.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonSetSaveDirectoryPath.Location = new System.Drawing.Point(483, 34);
+            this.buttonSetSaveDirectoryPath.Name = "buttonSetSaveDirectoryPath";
+            this.buttonSetSaveDirectoryPath.Size = new System.Drawing.Size(118, 23);
+            this.buttonSetSaveDirectoryPath.TabIndex = 200;
+            this.buttonSetSaveDirectoryPath.Text = "저장 폴더 설정";
+            this.buttonSetSaveDirectoryPath.UseVisualStyleBackColor = true;
+            this.buttonSetSaveDirectoryPath.Click += new System.EventHandler(this.buttonSetSaveDirectoryPath_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 800);
-            this.Controls.Add(this.dataGridView2);
+            this.ClientSize = new System.Drawing.Size(900, 690);
+            this.Controls.Add(this.dataGridViewWinner);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonDisableAll);
+            this.Controls.Add(this.buttonSetSaveDirectoryPath);
+            this.Controls.Add(this.buttonOpenSaveDirectoryPath);
+            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonAddCharacter);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEnableAll);
             this.Controls.Add(this.pictureBoxSelectedImage);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.richTextBoxLog);
+            this.Controls.Add(this.dataGridViewMain);
             this.Name = "FormMain";
             this.Resizable = false;
             this.Text = "Random select";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMin)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomSelectCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWinner)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextBoxLog;
         private System.Windows.Forms.PictureBox pictureBoxSelectedImage;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewMain;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnEnable;
         private System.Windows.Forms.DataGridViewImageColumn ColumnImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCaption;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonEnableAll;
+        private System.Windows.Forms.Button buttonDisableAll;
         private System.Windows.Forms.Button buttonSimpleRandomNumber;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericUpDownMax;
@@ -477,13 +617,25 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelSimpleRandomNumber;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button buttonAddCharacter;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.SaveFileDialog saveJsonFileDialog;
+        private System.Windows.Forms.OpenFileDialog openJsonFileDialog;
+        private System.Windows.Forms.OpenFileDialog openImageFileDialog;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericUpDownRandomSelectCount;
+        private System.Windows.Forms.Button buttonRandomSelect;
+        private System.Windows.Forms.DataGridView dataGridViewWinner;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Button buttonAddCharacter;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonOpenSaveDirectoryPath;
+        private System.Windows.Forms.Button buttonSetSaveDirectoryPath;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 
