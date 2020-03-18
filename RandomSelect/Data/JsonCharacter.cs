@@ -138,8 +138,8 @@ namespace RandomSelect
 
             //Json string으로 변경합니다.
             //창 닫기 전에 변경사항 확인용 원본 저장
-            originalJsonString = ConvertJsonString();
             rootPath = KeywordPathManager.GetKeywordPath(rootPath);
+            originalJsonString = ConvertJsonString();
 
             //파일로 저장합니다.
             File.WriteAllText(filePath, originalJsonString);
