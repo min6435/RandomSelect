@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="Default.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\DefaultImageBitmap.bmp" />
     <None Include="Resources\DefaultImage.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

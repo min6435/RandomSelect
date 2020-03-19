@@ -97,6 +97,9 @@ namespace RandomSelect
 
             for (int i = 0; i < jsonCharacter.characterList.Count(); i++)
             {
+                //부모-자식관계 설정
+                jsonCharacter.characterList[i].SetParentJsonCharacter(jsonCharacter);
+
                 string imageFilePath = $@"{jsonCharacter.rootPath}\{jsonCharacter.characterList[i].imageFileName}";
                 if (File.Exists(imageFilePath))
                 {
@@ -104,12 +107,12 @@ namespace RandomSelect
                     //jsonCharacter.characterList[i].image = Image.FromFile(imageFilePath);
                     using (FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
                     {
-                        jsonCharacter.characterList[i].image = Image.FromStream(fileStream);
+                        jsonCharacter.characterList[i].image = Image.FromStream(fileStream).Clone() as Image;
                         fileStream.Close();
                     }
                 }
                 else
-                    jsonCharacter.characterList[i].image = Properties.Resources.DefaultImage;
+                    jsonCharacter.characterList[i].image = Properties.Resources.DefaultImageBitmap;
             }
 
             //창 닫기 전에 변경사항 확인용 원본 저장

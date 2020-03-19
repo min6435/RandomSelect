@@ -61,20 +61,21 @@ namespace RandomSelect.Properties {
         }
         
         /// <summary>
-        ///   MaxCharacter 값 오류과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static string AppSettingsError_MaxCharacter {
+        internal static System.Drawing.Bitmap DefaultImage {
             get {
-                return ResourceManager.GetString("AppSettingsError_MaxCharacter", resourceCulture);
+                object obj = ResourceManager.GetObject("DefaultImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap DefaultImage {
+        internal static System.Drawing.Bitmap DefaultImageBitmap {
             get {
-                object obj = ResourceManager.GetObject("DefaultImage", resourceCulture);
+                object obj = ResourceManager.GetObject("DefaultImageBitmap", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,32 +20,43 @@ namespace RandomSelect
 
         //json에 기록하지 않을 데이터는 private구현
         private bool winning = false;
+        private JsonCharacter parentJsonCharacter = null;
 
-        public Character()
-        {
-        }
+        //JsonObject에서 사용하는 기본 생성자입니다. 삭제시 exception 발생
+        public Character() {}
 
         //Class constructor chaining
-        public Character(Image image, string imageFileName) : this(true, image, imageFileName, string.Empty, string.Empty) { }
+        public Character(Image image, string imageFileName, JsonCharacter parentJsonCharacter) : this(true, image, imageFileName, string.Empty, string.Empty, parentJsonCharacter) { }
 
-        public Character(bool enable, Image image, string imageFileName, string name, string caption)
+        public Character(bool enable, Image image, string imageFileName, string name, string caption, JsonCharacter parentJsonCharacter)
         {
             this.enable = enable;
             this.image = image;
             this.imageFileName = imageFileName;
             this.name = name;
             this.caption = caption;
-
+            this.parentJsonCharacter = parentJsonCharacter;
         }
 
-        public bool getWinning()
+        public bool GetWinning()
         {
             return winning;
         }
 
-        public void setWinning(bool winning)
+        public void SetWinning(bool winning)
         {
             this.winning = winning;
+        }
+
+        // Character의 단독 이미지 파일 경로 만들 시, 부모의 rootPath가 필요하므로 부모를 가져올 수 있도록 함.
+        public JsonCharacter GetParentJsonCharacter()
+        {
+            return parentJsonCharacter;
+        }
+
+        public void SetParentJsonCharacter(JsonCharacter parentJsonCharacter)
+        {
+            this.parentJsonCharacter = parentJsonCharacter;
         }
 
         #region IDisposable 구현

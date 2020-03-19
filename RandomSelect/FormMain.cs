@@ -79,10 +79,11 @@ namespace RandomSelect
         private void buttonAddCharacter_Click(object sender, EventArgs e)
         {
             JsonCharacter.GetInstance().characterList.Add(new Character(true,
-                                                                        Properties.Resources.DefaultImage,
-                                                                        "DefaultImage.gif",
+                                                                        Properties.Resources.DefaultImageBitmap,
+                                                                        "DefaultImageBitmap.bmp",   //gif를 저장하면, 추후 pictureBox에서 런타임 fileStream 예외 발생함. 그래서 bitmap을 사용
                                                                         string.Empty,
-                                                                        string.Empty));
+                                                                        string.Empty,
+                                                                        JsonCharacter.GetInstance()));
             
             //데이터 리바인딩(데이터 갱신)
             dataGridViewMain.DataSource = new BindingList<Character>(JsonCharacter.GetInstance().characterList);
@@ -181,7 +182,7 @@ namespace RandomSelect
                     //((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromFile(openImageFileDialog.FileName);
                     using (FileStream fileStream = new FileStream(openImageFileDialog.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromStream(fileStream);
+                        ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromStream(fileStream).Clone() as Image;
                         fileStream.Close();
                     }
                     ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).imageFileName = openImageFileDialog.SafeFileName;
@@ -209,7 +210,8 @@ namespace RandomSelect
             if ((sender as DataGridView).SelectedRows.Count < 1)
                 return;
 
-            pictureBoxSelectedImage.Image = ((sender as DataGridView).SelectedRows[0].DataBoundItem as Character).image;
+            Character selectedCharacter = (sender as DataGridView).SelectedRows[0].DataBoundItem as Character;
+            pictureBoxSelectedImage.Image = selectedCharacter.image;
         }
 
         private void buttonEnableAll_Click(object sender, EventArgs e)
@@ -265,28 +267,30 @@ namespace RandomSelect
             {
                 //전부 당첨자
                 foreach (Character character in enableCharacterList)
-                    character.setWinning(true);
+                    character.SetWinning(true);
             }
             else
             {
                 foreach (Character character in enableCharacterList)
-                    character.setWinning(false);
+                    character.SetWinning(false);
 
                 var winningCount = numericUpDownRandomSelectCount.Value;
                 while (winningCount > 0)
                 {
                     var randomNumber = randomNumberGenerator.Generate(0, enableCharacterList.Count - 1);
-                    if (enableCharacterList[randomNumber].getWinning() == false)
+                    if (enableCharacterList[randomNumber].GetWinning() == false)
                     {
-                        enableCharacterList[randomNumber].setWinning(true);
+                        enableCharacterList[randomNumber].SetWinning(true);
                         winningCount--;
                     }
                 }
             }
 
-            dataGridViewWinner.DataSource = new BindingList<Character>((from character in enableCharacterList
-                                                                        where character.getWinning() == true
-                                                                        select character).ToList());
+            List<Character> winnerCharacterList = (from character in enableCharacterList
+                                                   where character.GetWinning() == true
+                                                   select character).ToList();
+
+            dataGridViewWinner.DataSource = new BindingList<Character>(winnerCharacterList);
         }
 
         private void buttonOpenSaveDirectoryPath_Click(object sender, EventArgs e)
@@ -339,7 +343,7 @@ namespace RandomSelect
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(jsonFilePath) == true)
-                return;
+                buttonSaveAs_Click(null, null);
 
             JsonCharacter.GetInstance().SaveJsonFile(KeywordPathManager.GetOriginalPath(jsonFilePath), true);
             AppConfiguration.SetAppConfig("Json_file_path", KeywordPathManager.GetKeywordPath(jsonFilePath));
