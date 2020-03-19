@@ -107,12 +107,14 @@ namespace RandomSelect
                     //jsonCharacter.characterList[i].image = Image.FromFile(imageFilePath);
                     using (FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
                     {
-                        jsonCharacter.characterList[i].image = Image.FromStream(fileStream).Clone() as Image;
+                        Image loadImage = Image.FromStream(fileStream);
+                        jsonCharacter.characterList[i].image = loadImage.Clone() as Image;
+                        loadImage.Dispose();
                         fileStream.Close();
                     }
                 }
                 else
-                    jsonCharacter.characterList[i].image = Properties.Resources.DefaultImageBitmap;
+                    jsonCharacter.characterList[i].image = Properties.Resources.DefaultImageBitmap.Clone() as Image;
             }
 
             //창 닫기 전에 변경사항 확인용 원본 저장
@@ -132,11 +134,28 @@ namespace RandomSelect
 
             for (int i = 0; i < characterList.Count(); i++)
             {
-                if (File.Exists($@"{rootPath}\{characterList[i].imageFileName}"))
-                    File.Delete($@"{rootPath}\{characterList[i].imageFileName}");
+                string imageFilePath = $@"{rootPath}\{characterList[i].imageFileName}";
 
-                characterList[i].image?.Save($@"{rootPath}\{characterList[i].imageFileName}",
-                                                characterList[i].image.RawFormat);
+                if (File.Exists(imageFilePath))
+                    File.Delete(imageFilePath);
+
+                if (characterList[i].image == null)
+                    continue;
+                
+                try
+                {
+                    characterList[i].image.Save(imageFilePath, characterList[i].image.RawFormat);
+                }
+                catch
+                {
+                    Bitmap bitmap = new Bitmap(characterList[i].image.Width, characterList[i].image.Height, characterList[i].image.PixelFormat);
+                    Graphics g = Graphics.FromImage(bitmap);
+                    g.DrawImage(characterList[i].image, new Point(0, 0));
+                    g.Dispose();
+                    characterList[i].image.Dispose();
+                    bitmap.Save(imageFilePath);
+                    characterList[i].image = bitmap; // preserve clone        
+                }
             }
 
             //Json string으로 변경합니다.

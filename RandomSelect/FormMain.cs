@@ -79,7 +79,7 @@ namespace RandomSelect
         private void buttonAddCharacter_Click(object sender, EventArgs e)
         {
             JsonCharacter.GetInstance().characterList.Add(new Character(true,
-                                                                        Properties.Resources.DefaultImageBitmap,
+                                                                        Properties.Resources.DefaultImageBitmap.Clone() as Image,
                                                                         "DefaultImageBitmap.bmp",   //gif를 저장하면, 추후 pictureBox에서 런타임 fileStream 예외 발생함. 그래서 bitmap을 사용
                                                                         string.Empty,
                                                                         string.Empty,
@@ -176,17 +176,22 @@ namespace RandomSelect
                 if (DialogResult.OK != openImageFileDialog.ShowDialog())
                     return;
 
+                Character selectedCharacter = ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character);
+
                 try
                 {
                     //File lock이 되므로 코드 변경함.
                     //((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromFile(openImageFileDialog.FileName);
                     using (FileStream fileStream = new FileStream(openImageFileDialog.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).image = Image.FromStream(fileStream).Clone() as Image;
+                        selectedCharacter.image?.Dispose();
+                        Image loadImage = Image.FromStream(fileStream);
+                        selectedCharacter.image = loadImage?.Clone() as Image;
+                        loadImage?.Dispose();
                         fileStream.Close();
                     }
-                    ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).imageFileName = openImageFileDialog.SafeFileName;
-                    ((sender as DataGridView).Rows[e.RowIndex].DataBoundItem as Character).name = Path.GetFileNameWithoutExtension(openImageFileDialog.FileName);
+                    selectedCharacter.imageFileName = openImageFileDialog.SafeFileName;
+                    selectedCharacter.name = Path.GetFileNameWithoutExtension(openImageFileDialog.FileName);
                 }
                 catch (Exception)
                 {
@@ -208,7 +213,10 @@ namespace RandomSelect
         private void dataGridViewWinner_SelectionChanged(object sender, EventArgs e)
         {
             if ((sender as DataGridView).SelectedRows.Count < 1)
+            {
+                pictureBoxSelectedImage.Image = null;
                 return;
+            }
 
             Character selectedCharacter = (sender as DataGridView).SelectedRows[0].DataBoundItem as Character;
             pictureBoxSelectedImage.Image = selectedCharacter.image;
